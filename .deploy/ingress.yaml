@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: dreamvo
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      add_header  X-Frame-Options SAMEORIGIN;
+      add_header  X-Content-Type-Options nosniff;
+      add_header  Referrer-Policy no-referrer;
+spec:
+  rules:
+    - host: dreamvo.com
+      http:
+        paths:
+          - backend:
+              serviceName: dreamvo
+              servicePort: 3000
+            path: /
+    - host: www.dreamvo.com
+      http:
+        paths:
+          - backend:
+              serviceName: dreamvo
+              servicePort: 3000
+            path: /
+  tls:
+    - hosts:
+        - dreamvo.com
+        - www.dreamvo.com
+      secretName: dreamvo-website-tls
