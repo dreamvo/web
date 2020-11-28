@@ -28,7 +28,7 @@ jobs:
         env:
           GITHUB_ORG: dreamvo
           GITHUB_USER: actions
-          GITHUB_REPO: website
+          GITHUB_REPO: dreamvo.com
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ./yq w ./.deploy/deployment.yaml 'spec.template.spec.containers[0].image' ${{ steps.publish.outputs.digest }} -i
