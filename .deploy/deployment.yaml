@@ -18,7 +18,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-        - image: dreamvo/website@sha256:f0e3a0d3d90fb792c0418a27ec4664d94fca2e90f4c63ddb113f101e2708000b
+        - image: dreamvo/website@sha256:e04d226d0c688c3fcc38f6990bfff0a5ca940798e2e627eee48a7537d9eb9c20
           name: dreamvo
           imagePullPolicy: Always
           args:
