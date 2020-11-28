@@ -1,0 +1,40 @@
+name: Docker Image
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: contains(toJson(github.event.commits), '[skip-ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish to Registry
+        id: publish
+        uses: elgohr/Publish-Docker-Github-Action@2.22
+        with:
+          name: dreamvo/website
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tags: 'latest'
+
+      - name: Install yaml processor
+        run: |
+          wget https://github.com/mikefarah/yq/releases/download/3.4.0/yq_linux_amd64 -O ./yq
+          chmod +x ./yq
+
+      - name: Commit new image digest
+        env:
+          GITHUB_ORG: dreamvo
+          GITHUB_USER: actions
+          GITHUB_REPO: website
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ./yq w ./.deploy/deployment.yaml 'spec.template.spec.containers[0].image' ${{ steps.publish.outputs.digest }} -i
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_ORG/$GITHUB_REPO.git
+          git config --global user.email "$GITHUB_USER@users.noreply.github.com"
+          git config --global user.name "$GITHUB_USER"
+          git add ./.deploy && git commit -m "deploy: update docker image digest [skip-ci]"
+          git pull origin master --rebase
+          git push origin master
