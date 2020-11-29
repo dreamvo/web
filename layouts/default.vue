@@ -34,6 +34,9 @@
 <script>
 export default {
   head: {
+    title:
+      'Dreamvo - Free and open source media streaming for the 21th century',
+    meta: [{ charset: 'utf-8' }],
     bodyAttrs: {
       class: 'theme-light',
     },
@@ -42,7 +45,8 @@ export default {
 </script>
 
 <style lang="scss">
-$containerWidth: 1260px;
+$containerWidth: 1120px;
+$headerWidth: 1270px;
 $maxDesktopWidth: 960px;
 
 @font-face {
@@ -112,6 +116,7 @@ $maxDesktopWidth: 960px;
 body {
   font-family: 'Open Sans', serif;
   font-size: 16px;
+  margin: 0 30px 30px 50px;
 }
 
 body.theme-light {
@@ -137,7 +142,8 @@ body.theme-dark {
   margin-bottom: 120px;
 
   .header-container {
-    width: $containerWidth;
+    width: $headerWidth;
+    max-width: 100%;
     padding: 25px 0;
     margin: 0 auto 0 auto;
     display: flex;
