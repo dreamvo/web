@@ -46,7 +46,28 @@ export default {
   head: {
     title:
       'Dreamvo - Free and open source media streaming for the 21th century',
-    meta: [{ charset: 'utf-8' }],
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'viewport',
+        content: 'width=device-width,initial-scale=1,user-scalable=no',
+      },
+      {
+        name: 'keywords',
+        content:
+          'dremavo,saas,service,cloud,hosted,solution,streaming,video,audio,media,self-hosted,open source,',
+      },
+      {
+        name: 'description',
+        content:
+          'Modern and robust solutions to embed media streaming in any application at any scale.',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Modern and robust solutions to embed media streaming in any application at any scale.',
+      },
+    ],
     bodyAttrs: {
       class: 'theme-light',
     },
