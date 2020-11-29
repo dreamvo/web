@@ -1,74 +1,51 @@
 <template>
   <div class="content-section">
     <img src="~/assets/images/camera.gif" alt="" class="right-img" />
-    <h1>
-      We empower free and open source video streaming for the 21th century
-    </h1>
-    <p>
-      Dreamvo is an organization that develops open source solutions to support
-      your product.
-    </p>
-    <a href="#" class="btn btn-primary">View on GitHub</a>
+    <div>
+      <h1>We empower free and open source media streaming for the 21th century</h1>
+      <p>Modern and secure solutions to empower media streaming in any application at any scale.</p>
+      <NuxtLink to="/form" class="btn btn-primary btn-lg"
+      >Request demo
+      </NuxtLink
+      >
+      <a href="https://github.com/dreamvo/" target="_blank" class="btn btn-lg"
+      >View on GitHub</a
+      >
+    </div>
   </div>
 </template>
-
-<style lang="scss">
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 200;
-  font-display: swap;
-  src: url('~assets/fonts/OpenSans-Light.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('~assets/fonts/OpenSans-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('~assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('~assets/fonts/OpenSans-Bold.ttf') format('truetype');
-}
-
-body {
-  font-family: 'Open Sans', serif;
-  background-color: #ffffff;
-}
-
-.container {
-  width: 1260px;
-  margin: auto;
-}
-
-.header {
-  #logo {
-    width: 160px;
-    height: auto;
-    display: inline-block;
-  }
-}
-</style>
 
 <script lang="ts">
 export default {
   head: {
     title: 'Dreamvo',
-    meta: [{ charset: 'utf-8' }],
-  },
+    meta: [{ charset: 'utf-8' }]
+  }
 }
 </script>
+
+<style lang="scss">
+.right-img {
+  width: 492px;
+  height: auto;
+  margin-left: 60px;
+  float: right;
+}
+
+.content-section {
+  display: inline-block;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 44px;
+  margin-bottom: 25px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 25px;
+}
+</style>
