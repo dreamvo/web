@@ -1,14 +1,9 @@
 <template>
   <div class="content-section">
     <div class="notfound-content">
-      <h1>Page Not Found
-      </h1>
-      <p>
-        We're sorry but we can't find the page you're looking for.
-      </p>
-      <NuxtLink to="/" class="btn btn-primary"
-      >Back to Home
-      </NuxtLink>
+      <h1>Page Not Found</h1>
+      <p>We're sorry but we can't find the page you're looking for.</p>
+      <NuxtLink to="/" class="btn btn-primary">Back to Home </NuxtLink>
     </div>
   </div>
 </template>

@@ -10,10 +10,10 @@
         at any scale.
       </p>
       <NuxtLink to="/form" class="btn btn-primary btn-lg"
-      >Request Demo
+        >Request Demo
       </NuxtLink>
       <a href="https://github.com/dreamvo/" target="_blank" class="btn btn-lg"
-      >View on GitHub</a
+        >View on GitHub</a
       >
     </div>
   </div>
@@ -22,17 +22,24 @@
 <script lang="ts">
 export default {
   head: {
-    meta: [{ charset: 'utf-8' }]
-  }
+    meta: [{ charset: 'utf-8' }],
+  },
 }
 </script>
 
 <style lang="scss">
+$maxDesktopWidth: 960px;
+
 .right-img {
+  max-width: 100%;
   width: 492px;
   height: auto;
   margin-left: 15px;
   float: right;
+
+  @media (max-width: $maxDesktopWidth) {
+    display: none;
+  }
 }
 
 .content-section {
@@ -41,6 +48,10 @@ export default {
 
   .home-content {
     margin-top: 80px;
+
+    @media (max-width: $maxDesktopWidth) {
+      margin: 0;
+    }
   }
 
   h1 {
@@ -56,6 +67,4 @@ export default {
     margin-bottom: 25px;
   }
 }
-
-
 </style>

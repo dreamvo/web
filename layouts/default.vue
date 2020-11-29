@@ -22,6 +22,12 @@
             </li>
           </ul>
         </div>
+
+        <span id="mobile-toggle" class="menu-open">
+          <img src="~/assets/images/menu.svg" alt="" /><img
+            src="~/assets/images/close.svg"
+            alt=""
+        /></span>
       </div>
     </div>
 
@@ -159,6 +165,10 @@ body.theme-dark {
       display: flex;
       justify-content: space-around;
 
+      @media (max-width: $maxDesktopWidth) {
+        display: none;
+      }
+
       ul {
         li {
           display: inline-block;
@@ -175,6 +185,19 @@ body.theme-dark {
           margin-right: 0;
         }
       }
+    }
+  }
+
+  #mobile-toggle {
+    display: none;
+
+    @media (max-width: $maxDesktopWidth) {
+      display: inline-flex;
+      cursor: pointer;
+    }
+
+    :last-child {
+      display: none;
     }
   }
 }
