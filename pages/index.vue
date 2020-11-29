@@ -1,16 +1,72 @@
-<template><p>Redirecting to github.com/dreamvo...</p></template>
+<template>
+  <div class="content-section">
+    <img src="~/assets/images/camera.gif" alt="" class="right-img" />
+    <div class="home-content">
+      <h1>Free and open source media streaming for the 21th century</h1>
+      <p>
+        Modern and robust solutions to embed media streaming in any application
+        at any scale.
+      </p>
+      <NuxtLink to="/form" class="btn btn-primary btn-lg"
+        >Request Demo
+      </NuxtLink>
+      <a href="https://github.com/dreamvo/" target="_blank" class="btn btn-lg"
+        >View on GitHub</a
+      >
+    </div>
+  </div>
+</template>
 
 <script lang="ts">
 export default {
   head: {
-    title: 'Dreamvo',
-    meta: [
-      { charset: 'utf-8' },
-      {
-        'http-equiv': 'Refresh',
-        content: "0; url='https://github.com/dreamvo'",
-      },
-    ],
+    meta: [{ charset: 'utf-8' }],
   },
 }
 </script>
+
+<style lang="scss">
+$maxDesktopWidth: 920px;
+
+.right-img {
+  max-width: 100%;
+  width: 492px;
+  height: auto;
+  margin-left: 15px;
+  float: right;
+
+  @media (max-width: $maxDesktopWidth) {
+    display: none;
+  }
+}
+
+.content-section {
+  display: inline-block;
+  width: 100%;
+
+  .home-content {
+    margin-top: 80px;
+
+    @media (max-width: $maxDesktopWidth) {
+      margin: 0;
+    }
+
+    @media (min-width: 600px) and (max-width: $maxDesktopWidth) {
+      text-align: center;
+    }
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 44px;
+    margin-bottom: 25px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 32px;
+    margin-bottom: 25px;
+  }
+}
+</style>
