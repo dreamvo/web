@@ -64,7 +64,7 @@ $maxDesktopWidth: 920px;
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 32px;
     margin-bottom: 25px;
   }
