@@ -2,11 +2,9 @@
   <div class="content-section">
     <img src="~/assets/images/camera.gif" alt="" class="right-img" />
     <div class="home-content">
-      <h1>
-        We empower free and open source media streaming for the 21th century
-      </h1>
+      <h1>Free and open source media streaming for the 21th century</h1>
       <p>
-        Modern and secure solutions to embed media streaming in any application
+        Modern and robust solutions to embed media streaming in any application
         at any scale.
       </p>
       <NuxtLink to="/form" class="btn btn-primary btn-lg"
@@ -28,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-$maxDesktopWidth: 960px;
+$maxDesktopWidth: 920px;
 
 .right-img {
   max-width: 100%;
@@ -51,6 +49,10 @@ $maxDesktopWidth: 960px;
 
     @media (max-width: $maxDesktopWidth) {
       margin: 0;
+    }
+
+    @media (min-width: 600px) and (max-width: $maxDesktopWidth) {
+      text-align: center;
     }
   }
 

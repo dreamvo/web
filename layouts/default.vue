@@ -6,7 +6,7 @@
           ><img id="logo" src="~/assets/images/logo.svg" alt=""
         /></NuxtLink>
 
-        <div class="menu">
+        <div ref="menu" class="menu" @change="toggleMenu">
           <ul>
             <li>
               <NuxtLink to="/products">Products</NuxtLink>
@@ -23,11 +23,10 @@
           </ul>
         </div>
 
-        <span id="mobile-toggle" class="menu-open">
-          <img src="~/assets/images/menu.svg" alt="" /><img
-            src="~/assets/images/close.svg"
-            alt=""
-        /></span>
+        <div id="mobile-toggle" @click="toggleMenu">
+          <img v-if="!isMenuOpen" src="~/assets/images/menu.svg" alt="" />
+          <img v-if="isMenuOpen" src="~/assets/images/close.svg" alt="" />
+        </div>
       </div>
     </div>
 
@@ -39,6 +38,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isMenuOpen: false,
+    }
+  },
   head: {
     title:
       'Dreamvo - Free and open source media streaming for the 21th century',
@@ -47,13 +51,31 @@ export default {
       class: 'theme-light',
     },
   },
+  watch: {
+    $route() {
+      if (this.isMenuOpen) {
+        this.toggleMenu()
+      }
+    },
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen
+
+      if (this.isMenuOpen) {
+        this.$refs.menu.setAttribute('class', 'menu open')
+      } else {
+        this.$refs.menu.setAttribute('class', 'menu')
+      }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
 $containerWidth: 1120px;
 $headerWidth: 1270px;
-$maxDesktopWidth: 960px;
+$maxDesktopWidth: 920px;
 
 @font-face {
   font-family: 'Open Sans';
@@ -122,7 +144,7 @@ $maxDesktopWidth: 960px;
 body {
   font-family: 'Open Sans', serif;
   font-size: 16px;
-  margin: 0 30px 30px 50px;
+  margin: 0 30px 50px 30px;
 }
 
 body.theme-light {
@@ -147,6 +169,10 @@ body.theme-dark {
   font-family: 'Nunito', serif;
   margin-bottom: 120px;
 
+  @media (max-width: $maxDesktopWidth) {
+    margin-bottom: 35px;
+  }
+
   .header-container {
     width: $headerWidth;
     max-width: 100%;
@@ -167,23 +193,66 @@ body.theme-dark {
 
       @media (max-width: $maxDesktopWidth) {
         display: none;
+        position: fixed;
+        background: #ffffff;
+        width: 100%;
+        top: 80px;
+        left: 0;
+        height: 100vh;
       }
 
       ul {
+        margin: auto;
+
+        @media (max-width: $maxDesktopWidth) {
+          margin: 0;
+          left: 25px;
+          position: absolute;
+        }
+
         li {
           display: inline-block;
           font-weight: bold;
           font-size: 16px;
           margin-right: 63px;
 
+          @media (max-width: $maxDesktopWidth) {
+            display: block;
+            margin: 35px 0;
+            font-size: 18px;
+          }
+
           a {
             color: #2e3341;
+            transition: 0.1s;
+            border-bottom: 0 solid transparent;
+            padding-bottom: 3px;
+
+            @media (max-width: $maxDesktopWidth) {
+              border-bottom: none;
+            }
+          }
+
+          a:hover {
+            border-bottom: 3px solid #2e3341b8;
+
+            @media (max-width: $maxDesktopWidth) {
+              border-bottom: none;
+            }
           }
         }
 
         li:last-child {
-          margin-right: 0;
+          @media (min-width: $maxDesktopWidth) {
+            margin-right: 0;
+          }
         }
+      }
+    }
+
+    .menu.open {
+      @media (max-width: $maxDesktopWidth) {
+        display: inline-block;
       }
     }
   }
@@ -194,10 +263,6 @@ body.theme-dark {
     @media (max-width: $maxDesktopWidth) {
       display: inline-flex;
       cursor: pointer;
-    }
-
-    :last-child {
-      display: none;
     }
   }
 }
@@ -214,6 +279,11 @@ a {
   font-weight: bold;
   color: #2e3341;
   line-height: 22px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.8;
 }
 
 .btn.btn-primary {
