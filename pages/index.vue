@@ -1,18 +1,20 @@
 <template>
   <div class="content-section">
-    <img src="~/assets/images/camera.gif" alt="" class="right-img" />
+    <video
+      src="~/assets/images/camera.mp4"
+      autoplay
+      loop
+      class="right-img"
+    ></video>
     <div class="home-content">
       <h1>Free and open source media streaming for the 21th century</h1>
       <p>
-        Modern and robust solutions to embed media streaming in any application
-        at any scale.
+        Dreamvo builds modern and robust solutions to embed media streaming in
+        any application at any scale.
       </p>
-      <NuxtLink to="/form" class="btn btn-primary btn-lg"
-        >Request Demo
+      <NuxtLink to="/request-demo" class="btn btn-primary btn-lg"
+        >Get a demo
       </NuxtLink>
-      <a href="https://github.com/dreamvo/" target="_blank" class="btn btn-lg"
-        >View on GitHub</a
-      >
     </div>
   </div>
 </template>
@@ -36,7 +38,9 @@ $maxDesktopWidth: 920px;
   float: right;
 
   @media (max-width: $maxDesktopWidth) {
-    display: none;
+    width: 90%;
+    margin: auto;
+    float: none;
   }
 }
 

@@ -15,10 +15,15 @@
               <NuxtLink to="/solutions">Solutions</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/form">Pricing</NuxtLink>
+              <NuxtLink to="/pricing">Pricing</NuxtLink>
             </li>
             <li>
               <a href="https://github.com/dreamvo/" target="_blank">GitHub</a>
+            </li>
+            <li>
+              <NuxtLink to="/request-demo" class="btn btn-sm btn-primary"
+                >Get a demo</NuxtLink
+              >
             </li>
           </ul>
         </div>
@@ -243,7 +248,7 @@ body.theme-dark {
             font-size: 18px;
           }
 
-          a {
+          a:not(.btn) {
             color: #2e3341;
             transition: 0.1s;
             border-bottom: 0 solid transparent;
@@ -254,7 +259,7 @@ body.theme-dark {
             }
           }
 
-          a:hover {
+          a:not(.btn):hover {
             border-bottom: 3px solid #2e3341b8;
 
             @media (max-width: $maxDesktopWidth) {
@@ -293,6 +298,7 @@ a {
 }
 
 .btn {
+  text-align: center;
   font-size: 16px;
   padding: 12px 20px;
   display: inline-block;
@@ -301,6 +307,12 @@ a {
   color: #2e3341;
   line-height: 22px;
   transition: 0.2s;
+
+  @media (max-width: $maxDesktopWidth) {
+    width: 90%;
+    margin: auto;
+    display: block;
+  }
 }
 
 .btn:hover {
@@ -312,7 +324,11 @@ a {
   color: #ffffff;
 }
 
+.btn.btn-sm {
+  padding: 8px 13px;
+}
+
 .btn.btn-lg {
-  padding: 17px 25px;
+  padding: 15px 23px;
 }
 </style>
