@@ -22,8 +22,8 @@
             </li>
             <li>
               <NuxtLink to="/request-demo" class="btn btn-sm btn-primary"
-                >Get a demo</NuxtLink
-              >
+                >Get a demo
+              </NuxtLink>
             </li>
           </ul>
         </div>
@@ -87,12 +87,10 @@ export default {
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen
-
-      if (this.isMenuOpen) {
-        this.$refs.menu.setAttribute('class', 'menu open')
-      } else {
-        this.$refs.menu.setAttribute('class', 'menu')
-      }
+      this.$refs.menu.setAttribute(
+        'class',
+        this.isMenuOpen ? 'menu open' : 'menu'
+      )
     },
   },
 }
@@ -309,7 +307,7 @@ a {
   transition: 0.2s;
 
   @media (max-width: $maxDesktopWidth) {
-    width: 90%;
+    width: 85%;
     margin: auto;
     display: block;
   }
