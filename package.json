@@ -36,7 +36,7 @@
     "prettier": "2.2.1",
     "sass": "1.32.8",
     "sass-loader": "11.0.1",
-    "ts-jest": "26.5.1",
+    "ts-jest": "26.5.4",
     "vue-jest": "3.0.7"
   }
 }
