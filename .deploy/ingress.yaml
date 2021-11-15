@@ -9,6 +9,8 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/ssl-passthrough: "false"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    external-dns.alpha.kubernetes.io/hostname: "dreamvo.com.,www.dreamvo.com."
+    external-dns.alpha.kubernetes.io/ttl: "3600"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       add_header  X-Frame-Options SAMEORIGIN;
       add_header  X-Content-Type-Options nosniff;
