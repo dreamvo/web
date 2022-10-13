@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: dreamvo
@@ -21,16 +21,22 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: dreamvo
-              servicePort: 3000
+              service:
+                name: dreamvo
+                port:
+                  number: 3000
             path: /
+            pathType: Prefix
     - host: www.dreamvo.com
       http:
         paths:
           - backend:
-              serviceName: dreamvo
-              servicePort: 3000
+              service:
+                name: dreamvo
+                port:
+                  number: 3000
             path: /
+            pathType: Prefix
   tls:
     - hosts:
         - dreamvo.com
