@@ -38,6 +38,12 @@
     <div class="container">
       <Nuxt />
     </div>
+    <script
+      type="application/javascript"
+      defer
+      data-domain="dreamvo.com"
+      src="https://analytics.dreamvo.com/js/script.js"
+    ></script>
   </div>
 </template>
 
